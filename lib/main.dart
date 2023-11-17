@@ -149,6 +149,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         var collection =
                             FirebaseFirestore.instance.collection('countries');
                         collection.doc(_resultCountries[index].id).delete();
+                        setState(() {
+                          getCountriesStream();
+                        });
                       },
                       icon: const Icon(
                         Icons.delete,
